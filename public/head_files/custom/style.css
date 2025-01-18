@@ -1,0 +1,235 @@
+:root {
+    --colorAnimation: 0.15s;
+    --resizeAnimation: 0.4s;
+    --highlightColor: #00bbff;
+    --white: #e6e9ec;
+    --radius: 20px;
+    --offset: 2px;
+    --thickness: 2px;
+}
+
+body {
+    background: rgba(56, 74, 106, 0.38);
+    caret-color: transparent;
+}
+
+.form-control, .form-select {
+    border-radius: var(--radius);
+    caret-color: var(--white);
+}
+
+.reduce-input-padding {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.custom-link-style {
+    text-decoration: underline;
+    text-decoration-color: rgba(0, 187, 255, 0.5);
+    text-decoration-thickness: var(--thickness);
+    cursor: pointer;
+    text-underline-offset: var(--offset);
+}
+
+
+.custom-link-style:hover {
+    text-decoration-color: var(--highlightColor);
+}
+
+.remove-link-style {
+    color: var(--white);
+    text-decoration: none;
+}
+
+.btn {
+    border-radius: var(--radius);
+    font-weight: 500;
+}
+
+.border-radius-right {
+    border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+.border-radius-top {
+    border-radius: var(--radius) var(--radius) 0 0;
+}
+
+.border-radius-bottom {
+    border-radius: 0 0 var(--radius) var(--radius);
+}
+
+h1 {
+    color: var(--highlightColor);
+    font-size: 2.5em;
+    text-shadow: 0 0 1px var(--highlightColor);
+}
+
+.smaller-width {
+    max-width: 700px;
+}
+
+.highlight {
+    -webkit-box-shadow: 0 0 7px 0 var(--highlightColor);
+    box-shadow: 0 0 7px 0 var(--highlightColor);
+}
+
+.highlight-text {
+    text-shadow: 0 0 15px var(--highlightColor);
+    color: var(--highlightColor);
+}
+
+.highlight-text-color {
+    color: var(--highlightColor);
+}
+
+.highlight-text-color:hover {
+    color: var(--highlightColor);
+}
+
+.smooth-transition {
+    transition: text-shadow var(--colorAnimation) ease, color var(--colorAnimation) ease;
+}
+
+.max-width-td {
+    max-width: 200px;
+}
+
+.mx {
+    margin: 0 3px;
+}
+
+.chosen {
+    text-decoration: underline;
+    text-decoration-thickness: var(--thickness);
+    text-decoration-color: var(--highlightColor);
+    text-underline-offset: var(--offset);
+}
+
+.interactive-navbar {
+    transition: text-decoration-color var(--colorAnimation) ease;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-decoration-thickness: var(--thickness);
+    text-underline-offset: var(--offset);
+}
+
+.interactive-navbar:hover {
+    text-decoration-color: var(--highlightColor);
+}
+
+i {
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+.fa-square-plus:hover {
+    color: #0d6dfc;
+}
+
+.fa-square-minus:hover, .fa-xmark:hover {
+    color: #da3545;
+}
+
+.fa-square-plus:active {
+    color: #0a58ca;
+}
+
+.fa-square-minus:active, .fa-xmark:active {
+    color: #a52834;
+}
+
+.scrollable-div {
+    min-height: 60px;
+    transition: height var(--resizeAnimation) ease;
+    overflow: auto;
+    max-height: max(calc(100vh - 200px), 400px);
+}
+
+.table-height {
+    max-height: max(calc(100vh - 200px), 400px);
+    overflow: auto;
+}
+
+
+.div-shadow {
+    position: relative;
+}
+
+.div-shadow::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 0 18px 3px rgba(0, 0, 0, 0.25) inset;
+    -webkit-box-shadow: 0 0 18px 3px rgba(0, 0, 0, 0.25) inset;
+    -moz-box-shadow: 0 0 18px 3px rgba(0, 0, 0, 0.25) inset;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.interactive {
+    cursor: pointer;
+    color: var(--white);
+}
+
+.a {
+    color: var(--white);
+}
+
+.interactive-delete {
+    cursor: pointer;
+    color: var(--white);
+}
+
+.interactive:hover {
+    color: var(--highlightColor);
+}
+
+.interactive-delete:hover {
+    color: #da3545;
+}
+
+.no-border {
+    border: transparent;
+}
+
+.btn-outline-info {
+    color: var(--highlightColor);
+    border-color: var(--highlightColor);
+}
+
+.btn-outline-info:hover {
+    color: black;
+    background-color: var(--highlightColor);
+}
+
+.offcanvas-size-xl {
+    --bs-offcanvas-width: min(95vw, 600px) !important;
+}
+
+.grabbable {
+    cursor: grab;
+}
+
+.grabbable:active {
+    cursor: grabbing;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.blinking {
+    animation: blink 1s infinite;
+    color: #da3545;
+}
