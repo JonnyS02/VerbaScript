@@ -39,7 +39,6 @@ echo '</div>'; ?>
         recognition_local.interimResults = false;
         recognition_local.lang = 'de-DE';
         let complete_text = '';
-        let isProcessing = false;
 
         function toggleRecognition(ai_section) {
             if ($('#start_text' + ai_section).text() === 'Lokale Spracheingabe Starten') {
@@ -63,7 +62,6 @@ echo '</div>'; ?>
         function captureText(ai_section) {
             complete_text = '';
             recognition_local.onresult = (event) => {
-                isProcessing = true;
                 let spoken_text = event.results[event.resultIndex][0].transcript.trim();
                 if (spoken_text.toLowerCase() === "los." || spoken_text.toLowerCase() === "los") {
                     resetFields(ai_section, true);
@@ -83,9 +81,6 @@ echo '</div>'; ?>
                 console.error('Fehler bei der Spracherkennung:', event.error);
                 resetFields(ai_section, false);
             };
-            recognition_local.onend = () => {
-                isProcessing = false;
-            };
             recognition_local.start();
         }
 
@@ -101,9 +96,6 @@ echo '</div>'; ?>
             aboard_buttons.addClass('bg-secondary-subtle text-secondary-emphasis border-secondary-subtle');
             $('#start_text' + ai_section).text('Lokale Spracheingabe Starten');
             $('#microphone_icon' + ai_section).removeClass('blinking');
-            while (isProcessing) { //Wait for the recognition to finish processing
-                setTimeout(() => {}, 100);
-            }
             if (send_data) {
                 if (complete_text.trim()) {
                     sendUserInput(ai_section, complete_text);
