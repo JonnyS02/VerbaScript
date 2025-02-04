@@ -55,7 +55,7 @@ echo '</div>'; ?>
                 $('#microphone_icon' + ai_section).addClass('blinking');
                 captureText(ai_section);
             } else {
-                resetFields(ai_section, true);
+                resetFields(ai_section, true, 500); //wait for the recognition to finish processing
             }
         }
 
@@ -84,7 +84,7 @@ echo '</div>'; ?>
             recognition_local.start();
         }
 
-        function resetFields(ai_section, send_data) {
+        function resetFields(ai_section, send_data, busy_wait = 0) {
             recognition_local.stop();
             let toggle_buttons = $('.toggle_button');
             let aboard_buttons = $('.aboard_button');
@@ -97,9 +97,12 @@ echo '</div>'; ?>
             $('#start_text' + ai_section).text('Lokale Spracheingabe Starten');
             $('#microphone_icon' + ai_section).removeClass('blinking');
             if (send_data) {
-                if (complete_text.trim()) {
-                    sendUserInput(ai_section, complete_text);
-                }
+                setTimeout(() => {
+                    console.log("Complete text: " + complete_text);
+                    if (complete_text.trim()) {
+                        sendUserInput(ai_section, complete_text);
+                    }
+                }, busy_wait);
             }
         }
 
