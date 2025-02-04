@@ -98,7 +98,6 @@ echo '</div>'; ?>
             $('#microphone_icon' + ai_section).removeClass('blinking');
             if (send_data) {
                 setTimeout(() => {
-                    console.log("Complete text: " + complete_text);
                     if (complete_text.trim()) {
                         sendUserInput(ai_section, complete_text);
                     }
