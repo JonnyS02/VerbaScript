@@ -5,7 +5,7 @@
     </label>
     <div class="col-md-9 m-auto">
         <div class="input-group">
-            <select class="form-select text-truncate" id="template" name="template"
+            <select class="form-select text-truncate" id="template" name="template" autofocus
                     title="Wählen Sie hier die Vorlage aus, von dem sie die Elemente und Anordnung bearbeiten möchten.">
                 <?php if (!empty($select_templates)) {
                     foreach ($select_templates as $select_template) : ?>
