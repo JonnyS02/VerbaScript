@@ -3,7 +3,7 @@
         <label for="email" class="col-form-label">E-Mail:</label>
         <input type="email" name="email" id="email" value="<?= $email ?? "" ?>"
                class="form-control <?= isset($email_error) ? "is-invalid" : "" ?>"
-               placeholder="Benutzername" required>
+               placeholder="Benutzername" required autofocus>
         <div class="invalid-feedback mx-2">
             <?= $email_error ?? "" ?>
         </div>
