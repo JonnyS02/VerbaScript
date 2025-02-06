@@ -4,7 +4,7 @@
         <input type="text" class="form-control <?= isset($name_error) ? "is-invalid" : "" ?> " id="name"
                autocomplete="off"
                name="name" required placeholder="Einzigartiger Name" title="Einzigartiger Name"
-               oninput="checkValidName()" value="<?= $object['name'] ?? "" ?>">
+               oninput="checkValidName()" value="<?= $object['name'] ?? "" ?>" autofocus>
         <div id="validationName" class="invalid-feedback mx-2">
             <?= $name_error ?? '' ?>
         </div>
